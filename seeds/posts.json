@@ -1,0 +1,63 @@
+[
+
+    {
+      "title": "Node.js Performance Optimization Tips",
+      "content": "Learn how to speed up your Node.js applications with caching and clustering.",
+      "postedBy": "Alice Brown",
+      "createdOn": "2024-02-02T08:45:00Z"
+    },
+    {
+      "title": "Mastering Sequelize for Database Management",
+      "content": "Sequelize simplifies working with databases in Node.js.",
+      "postedBy": "Bob White",
+      "createdOn": "2024-02-01T14:30:00Z"
+    },
+    {
+      "title": "Async/Await in JavaScript Explained",
+      "content": "Understanding asynchronous JavaScript using async/await.",
+      "postedBy": "Charlie Green",
+      "createdOn": "2024-01-30T09:00:00Z"
+    },
+    {
+      "title": "Building RESTful APIs with Express",
+      "content": "A guide to creating scalable RESTful APIs using Express.js.",
+      "postedBy": "Fiona Blue",
+      "createdOn": "2024-01-27T15:45:00Z"
+    },
+    {
+      "title": "Dockerizing Your Node.js Application",
+      "content": "Learn how to containerize your Node.js app with Docker.",
+      "postedBy": "George Red",
+      "createdOn": "2024-01-26T08:20:00Z"
+    },
+    {
+      "title": "How to Secure a Node.js Application",
+      "content": "Implement security best practices for your Node.js apps.",
+      "postedBy": "Hannah Yellow",
+      "createdOn": "2024-01-25T13:10:00Z"
+    },
+    {
+      "title": "React Hooks: The Ultimate Guide",
+      "content": "Understand and implement React Hooks for state and effects.",
+      "postedBy": "Ian Silver",
+      "createdOn": "2024-01-24T10:55:00Z"
+    },
+    {
+      "title": "Automating Tasks with Node.js",
+      "content": "Use Node.js for task automation with scripts and schedulers.",
+      "postedBy": "Lara White",
+      "createdOn": "2024-01-21T16:50:00Z"
+    },
+    {
+      "title": "Testing Your Node.js Application",
+      "content": "Learn about Jest, Mocha, and other testing frameworks.",
+      "postedBy": "Paula Pink",
+      "createdOn": "2024-01-17T11:15:00Z"
+    },
+    {
+      "title": "Scaling Node.js Applications",
+      "content": "Techniques to handle high traffic with Node.js efficiently.",
+      "postedBy": "Quinn Orange",
+      "createdOn": "2024-01-16T15:05:00Z"
+    }
+  ]

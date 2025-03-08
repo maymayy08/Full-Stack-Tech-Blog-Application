@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Monospace";
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #9ec4c5, #f2c2c2);
+  }
+  
+  .container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+  }
+  
+  .second-container {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255, 0.2);
+    box-shadow: 0 5px 45px rgb(0, 0, 0, 0.15);
+    border-radius: 5px;
+  }
+  
+  /* Making 2 columns for SIGN IN and SIGN UP */
+  .second-container .box {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Adding style to H2 font */
+  .second-container .box h2 {
+    color: white;
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  
+  /* Adding style to BOTH buttons */
+  .second-container .box button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    font-size: 16px;
+    border-style: none;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: ease-out 0.3s;
+    position: relative;
+    border: 2px solid deepskyblue;
+  }
+  
+  .second-container .box button:hover {
+    background: transparent;
+    border: 2px solid white;
+    color: #fff;
+  }
+  
+  /* Adding style to Silder */
+  .formBx {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 45px rgb(0, 0, 0, 0.15);
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  
+  .formBx.active {
+    left: 50%;
+  }
+  
+  .formBx .form {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 50px;
+    transition: 0.5s;
+  }
+  
+  .formBx .form form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formBx .form form i {
+    font-size: 4rem;
+    font-weight: 500;
+    margin-left: 0;
+    padding-left: 0;
+    left: 0;
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .formBx.active .loginForm {
+    left: -100%;
+    transition-delay: 0%;
+  }
+  
+  .formBx .registerForm {
+    left: 100%;
+    transition-delay: 0s;
+  }
+  
+  .formBx.active .registerForm {
+    left: 0%;
+    transition-delay: 0.25s;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid gray;
+    background: transparent;
+    font-size: 14px;
+    font-family: "Montserrat Alternates", sans-serif;
+  }
+  
+  .loginBtn,
+  .registerBtn {
+    cursor: pointer;
+    padding: 6px;
+    color: black;
+    width: 35%;
+    font-weight: bold;
+    border: 2px solid deepskyblue;
+    background: none;
+    border-radius: 10%;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+  
+  .pandalaptopImg {
+    width: 95%;
+  }
+  
+  .postTitle,
+  .createPost,
+  .subTitle {
+    text-align: center;
+    font-family: "Sour Gummy", serif;
+    margin-top: 10px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .logoutBtn {
+    position: relative;
+    float: right;
+    bottom: 45px;
+    right: 120px;
+    border: 2px solid deepskyblue;
+    color: black;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 14px;
+    background: #fff;
+    font-weight: bold;
+  }
+  
+  .submitPost {
+    position: relative;
+    bottom: 5px;
+    border: 2px solid deepskyblue;
+    font-family: monospace;
+    color: black;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 14px;
+    background: #fff;
+    font-weight: bold;
+  }
+  
+  button {
+    position: relative;
+    bottom: 5px;
+    border: 2px solid deepskyblue;
+    font-family: "Montserrat Alternates", sans-serif;
+    color: black;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 12px;
+    background: #fff;
+    font-weight: bold;
+  }
+  
+  textarea {
+    border: 2px solid black;
+  }
+  
+  #post-title::placeholder {
+    font-size: 20px;
+  }
+  
+  .loadPost {
+    position: relative;
+    float: right;
+    border: 2px solid deepskyblue;
+    color: black;
+    bottom: 45px;
+    width: 10%;
+    background: #fff;
+    font-weight: bold;
+  }
+  
+  .post-title {
+    color: #333;
+    font-family: "Sour Gummy", sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-family: "Montserrat Alternates", serif;
+  }
+  
+  /* Style for the content */
+  .post-content {
+    font-family: "Montserrat Alternates", serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: deeppink;
+  }
+  
+  /* Additional styles for the post container (optional) */
+  .post-container {
+    border: 2px solid grey;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+  }
+  
+  textarea {
+    font-size: 16px; /* Increase the text size inside the textarea */
+    padding: 10px; /* Optional: Add padding for better readability */
+    width: 100%; /* Optional: Make textarea fill the width of its container */
+    height: 150px; /* Optional: Set a fixed height */
+    border: 2px solid grey; /* Optional: Add border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    resize: vertical;
+    font-family: "Montserrat Alternates", serif; /* Optional: Allow resizing of the textarea vertically */
+  }
+  
+  #title-filter {
+    margin-bottom: 20px;
+    border: 2px solid deepskyblue;
+    font-family: "Montserrat Alternates", serif;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  #post-title {
+    font-family: "Montserrat Alternates", serif;
+    font-size: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .logoutBtn {
+      position: relative;
+      left: 5px;
+    }
+  
+    .loadPost {
+      position: relative;
+      bottom: 60px;
+    }
+  }
+  

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Full Stack Tech Blog Application</title>
+  </head>
+
+  <body>
+    <div class="container" id="auth-container">
+      <div class="second-container">
+        <div class="box">
+          <h2>Already Have an Account?</h2>
+          <button class="logbtn">Login here</button>
+        </div>
+        <div class="box">
+          <h2>Don't Have an Account?</h2>
+          <button class="regbtn">Register here</button>
+        </div>
+      </div>
+      <div class="formBx">
+        <!------------ Slider ------------->
+        <div class="form loginForm">
+          <!-- Sign In Form -->
+          <h3>Login</h3>
+          <img
+            src="https://img.freepik.com/premium-vector/cute-panda-listening-music-with-headphone-laptop-cartoon-icon-illustration-animal-music-icon-concept-premium-flat-cartoon-style_138676-2680.jpg"
+            alt="panda-with-laptop"
+            class="pandalaptopImg"
+          />
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input
+            type="password"
+            id="login-password"
+            placeholder="Password"
+            required
+          />
+          <button class="loginBtn" onclick="login()">Login</button>
+        </div>
+        <div class="form registerForm">
+          <!-- Sign Up Form -->
+          <h3>Create a Account</h3>
+          <img
+            src="https://img.freepik.com/premium-vector/cute-panda-with-laptop-successful-sign-vector-icon-illustration_138676-418.jpg"
+            alt="panda-with-laptop-2"
+            class="pandalaptopImg"
+          />
+          <input type="text" id="username" placeholder="Username" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button class="registerBtn" onclick="register()">Register</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container hidden" id="app-container">
+      <h2 class="postTitle">Welcome to CodePanda blog 🐼 📝</h2>
+      <button class="logoutBtn" onclick="logout()">Logout</button>
+      <hr />
+      <h2 class="createPost">Create a post...</h2>
+      <input type="text" id="post-title" placeholder="Title" />
+      <textarea id="post-content" placeholder="Content"></textarea>
+      <button class="submitPost" onclick="createPost()">Submit Post</button> 
+      <h2 class="subTitle">Posts</h2>
+      <button class="loadPost" onclick="fetchPosts()">Load Posts</button>
+      <select id="title-filter">
+        <option value="">All Categories</option>
+        <option value="gitHub">GitHub</option>
+        <option value="javaScript">JavaScript</option>
+        <option value="node.js">Node.js</option>
+        <option value="react">React</option>
+        <option value="sequelize">Sequelize</option>
+      </select> 
+      
+
+<!-- Display Posts -->
+<div id="posts"></div>
+
+<script src="./assets/script.js"></script>
+  </body>
+</html>
