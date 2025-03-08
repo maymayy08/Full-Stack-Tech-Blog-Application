@@ -24,7 +24,7 @@ function register() {
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  fetch("https://full-stack-tech-blog-application-axt5.onrender/api/users", {
+  fetch("http://localhost:3005/api/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, email, password }),
@@ -46,7 +46,7 @@ function register() {
 function login() {
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
-  fetch("https://full-stack-tech-blog-application-axt5.onrender/api/users/login", {
+  fetch("http://localhost:3005/api/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -77,7 +77,7 @@ function login() {
 
 // Function to logout of blog page
 function logout() {
-  fetch("https://full-stack-tech-blog-application-axt5.onrender/api/users/logout", {
+  fetch("http://localhost:3005/api/users/logout", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
   }).then(() => {
@@ -94,7 +94,7 @@ let allPosts = [];
 
 // Function to fetch posts and display them
 function fetchPosts() {
-  fetch("hhttps://full-stack-tech-blog-application-axt5.onrender/api/posts", {
+  fetch("http://localhost:3005/api/posts", {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -110,7 +110,7 @@ function fetchPosts() {
 function createPost() {
   const title = document.getElementById("post-title").value;
   const content = document.getElementById("post-content").value;
-  fetch("https://full-stack-tech-blog-application-axt5.onrender/api/posts", {
+  fetch("http://localhost:3005/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -205,7 +205,7 @@ function updatePost(postId) {
   const newTitle = prompt("Enter new title:");
   const newContent = prompt("Enter new content:");
   if (newTitle && newContent) {
-    fetch(`https://full-stack-tech-blog-application-axt5.onrender/api/posts/${postId}`, {
+    fetch(`http://localhost:3005/api/posts/${postId}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -230,7 +230,7 @@ function updatePost(postId) {
 // Function to delete a post
 function deletePost(postId) {
   if (confirm("Are you sure you want to delete this post?")) {
-    fetch(`https://full-stack-tech-blog-application-axt5.onrender/api/posts/${postId}`, {
+    fetch(`http://localhost:3005/api/posts/${postId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
