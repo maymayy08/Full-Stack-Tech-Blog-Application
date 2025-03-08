@@ -94,7 +94,7 @@ let allPosts = [];
 
 // Function to fetch posts and display them
 function fetchPosts() {
-  fetch("hhttps://full-stack-tech-blog-application-axt5.onrender/api/posts", {
+  fetch("https://full-stack-tech-blog-application-axt5.onrender/api/posts", {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   })
