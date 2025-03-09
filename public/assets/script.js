@@ -24,7 +24,7 @@ function register() {
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/users`, {
+  fetch("hhttps://full-stack-tech-blog-application-axt5.onrender.com/api/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, email, password }),
@@ -46,7 +46,7 @@ function register() {
 function login() {
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
-  fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/users/login`, {
+  fetch("https://full-stack-tech-blog-application-axt5.onrender.com/api/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -77,7 +77,7 @@ function login() {
 
 // Function to logout of blog page
 function logout() {
-  fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/users/logout`, {
+  fetch("https://full-stack-tech-blog-application-axt5.onrender.com/api/users/logout", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
   }).then(() => {
@@ -94,7 +94,7 @@ let allPosts = [];
 
 // Function to fetch posts and display them
 function fetchPosts() {
-  fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts`, {
+  fetch("https://full-stack-tech-blog-application-axt5.onrender.com/api/posts", {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -110,7 +110,7 @@ function fetchPosts() {
 function createPost() {
   const title = document.getElementById("post-title").value;
   const content = document.getElementById("post-content").value;
-  fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts`, {
+  fetch("hhttps://full-stack-tech-blog-application-axt5.onrender.com/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -202,16 +202,9 @@ document
 
 // Function to update a post
 function updatePost(postId) {
-    const newTitle = prompt("Enter new title:");
-    const newContent = prompt("Enter new content:");
-  
-    if (!newTitle || !newContent) {
-      alert("Both title and content are required.");
-      return;
-    }
-  
-    console.log("Updating post with ID:", postId); // Verify the correct postId
-  
+  const newTitle = prompt("Enter new title:");
+  const newContent = prompt("Enter new content:");
+  if (newTitle && newContent) {
     fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts/${postId}`, {
       method: "PUT",
       headers: {
@@ -223,26 +216,17 @@ function updatePost(postId) {
         content: newContent,
       }),
     })
-      .then((res) => {
-        if (!res.ok) {
-          return res.json().then((data) => {
-            throw new Error(data.message || "Failed to update post.");
-          });
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((updatedPost) => {
         console.log("Post updated:", updatedPost);
-        alert("Post updated successfully.");
-        fetchPosts(); // Refresh the posts list
+        // After updating, refresh the posts list
+        fetchPosts();
       })
       .catch((err) => {
         console.error("Error updating post:", err);
-        alert("Failed to update post: " + err.message);
       });
   }
-  
-  
+}
 // Function to delete a post
 function deletePost(postId) {
   if (confirm("Are you sure you want to delete this post?")) {
