@@ -301,6 +301,8 @@
     font-size: 12px;
     background: #fff;
     font-weight: bold;
+    width: 25px;
+    height: 30px;
   }
   
   @media (max-width: 768px) {
