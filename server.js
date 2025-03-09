@@ -4,8 +4,6 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const sequelize = require("./config/connection");
-const applySchema = require('./applySchema');
-applySchema();
 
 const routes = require("./routes");
 
