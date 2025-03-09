@@ -290,7 +290,7 @@
   }
   .filterBtn {
     position: relative;
-    bottom: 5px;
+    bottom: 0;
     border: 2px solid deepskyblue;
     font-family: "Montserrat Alternates", sans-serif;
     color: black;
