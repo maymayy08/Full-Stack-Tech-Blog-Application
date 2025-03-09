@@ -172,10 +172,10 @@ function displayPosts(posts) {
 
 // Function to filter posts by title and content 
 function filterPosts() {
-    const filterText = document.getElementById("filter-input").value.toLowerCase();
-  
+    const filterInput = document.getElementById("filter-input");
+    const filterText = filterInput.value.toLowerCase(); 
+    
     let filteredPosts = allPosts;
-
     if (filterText) {
       filteredPosts = filteredPosts.filter((post) =>
         post.title.toLowerCase().includes(filterText) || post.content.toLowerCase().includes(filterText)
@@ -184,10 +184,11 @@ function filterPosts() {
   
     // Display the filtered posts
     displayPosts(filteredPosts);
-    filterInput.value = '';
+    filterInput.value = ''; 
   }
   
   document.getElementById("filter-input").addEventListener("keypress", function(event) {
+    // Check if the pressed key is "Enter" (key code 13)
     if (event.key === "Enter") {
       filterPosts();
     }
