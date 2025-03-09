@@ -3,7 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-const sequelize = require("./config/connection");
+// const sequelize = require("./config/connection");
 const applySchema = require('./applySchema');
 applySchema();
 
