@@ -207,10 +207,10 @@ function updatePost(postId) {
   
     if (!newTitle || !newContent) {
       alert("Both title and content are required.");
-      return; // Stop the process if either is missing
+      return;
     }
   
-    console.log("Updating post with ID:", postId); // Verify that the correct postId is being passed
+    console.log("Updating post with ID:", postId); // Verify the correct postId
   
     fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts/${postId}`, {
       method: "PUT",
@@ -234,13 +234,14 @@ function updatePost(postId) {
       .then((updatedPost) => {
         console.log("Post updated:", updatedPost);
         alert("Post updated successfully.");
-        fetchPosts(); // Refresh the posts list after successful update
+        fetchPosts(); // Refresh the posts list
       })
       .catch((err) => {
         console.error("Error updating post:", err);
         alert("Failed to update post: " + err.message);
       });
   }
+  
   
 // Function to delete a post
 function deletePost(postId) {
