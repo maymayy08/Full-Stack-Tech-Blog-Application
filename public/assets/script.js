@@ -195,10 +195,7 @@ function filterPosts() {
     displayPosts(filteredPosts);
   }
 
-// Attach event listener to the dropdown
-document
-  .getElementById("title-filter")
-  .addEventListener("change", filterPostsByTitle);
+
 
 // Function to update a post
 function updatePost(postId) {
