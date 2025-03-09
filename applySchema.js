@@ -1,7 +1,8 @@
-const mysql = require("mysql2");
-const fs = require("fs");
+const mysql = require('mysql2');
+const fs = require('fs');
+const path = require('path');
 
-// Replace with your actual Render database connection settings
+// Database connection details
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USERNAME,
@@ -9,20 +10,30 @@ const connection = mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
-// Read the schema.sql file
-fs.readFile("db/schema.sql", "utf8", (err, sql) => {
-  if (err) {
-    console.error("Error reading schema file:", err);
-    return;
-  }
+// Path to the schema.sql file
+const schemaPath = path.join(__dirname, 'db', 'schema.sql');
 
-  // Execute the SQL from the file
-  connection.query(sql, (err, result) => {
+// Define a function to apply the schema
+function applySchema() {
+  // Read the schema.sql file
+  fs.readFile(schemaPath, 'utf8', (err, sql) => {
     if (err) {
-      console.error("Error applying schema:", err);
-      return;
+      console.error("Error reading schema file:", err);
+      process.exit(1); // Exit if schema file can't be read
     }
 
-    console.log("Schema applied successfully:", result);
+    // Apply the SQL schema to the database
+    connection.query(sql, (err, result) => {
+      if (err) {
+        console.error("Error applying schema:", err);
+        process.exit(1); // Exit if schema application fails
+      }
+
+      console.log("Schema applied successfully:", result);
+      connection.end(); // Close the database connection
+    });
   });
-});
+}
+
+// Export the function
+module.exports = applySchema;
