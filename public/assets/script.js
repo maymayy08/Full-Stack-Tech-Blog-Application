@@ -205,7 +205,7 @@ function updatePost(postId) {
   const newTitle = prompt("Enter new title:");
   const newContent = prompt("Enter new content:");
   if (newTitle && newContent) {
-    fetch("https://full-stack-tech-blog-application-axt5.onrender.com/api/posts/${postId}", {
+    fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts/${postId}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
