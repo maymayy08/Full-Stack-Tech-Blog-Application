@@ -279,6 +279,7 @@
   
   #filter-input {
     margin-bottom: 20px;
+    width: 25%;
     border: 2px solid deepskyblue;
     font-family: "Montserrat Alternates", serif;
     font-size: 12px;
@@ -288,6 +289,18 @@
   #post-title {
     font-family: "Montserrat Alternates", serif;
     font-size: 16px;
+  }
+  .filterBtn {
+    position: relative;
+    bottom: 5px;
+    border: 2px solid deepskyblue;
+    font-family: "Montserrat Alternates", sans-serif;
+    color: black;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 12px;
+    background: #fff;
+    font-weight: bold;
   }
   
   @media (max-width: 768px) {

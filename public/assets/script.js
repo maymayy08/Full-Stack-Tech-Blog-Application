@@ -194,6 +194,14 @@ function filterPosts() {
     // Display the filtered posts
     displayPosts(filteredPosts);
   }
+  
+  // Add an event listener for the "Enter" key press on the input field
+  document.getElementById("filter-input").addEventListener("keypress", function(event) {
+    // Check if the pressed key is "Enter" (key code 13)
+    if (event.key === "Enter") {
+      filterPosts();
+    }
+  });
 
 
 
