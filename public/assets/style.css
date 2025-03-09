@@ -300,6 +300,7 @@
     background: #fff;
     font-weight: bold;
     height: 30px;
+    width: 35px;
   }
   
   @media (max-width: 768px) {
