@@ -24,7 +24,7 @@ function register() {
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-  fetch("hhttps://full-stack-tech-blog-application-axt5.onrender.com/api/users", {
+  fetch("https://full-stack-tech-blog-application-axt5.onrender.com/api/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, email, password }),
@@ -110,7 +110,7 @@ function fetchPosts() {
 function createPost() {
   const title = document.getElementById("post-title").value;
   const content = document.getElementById("post-content").value;
-  fetch("hhttps://full-stack-tech-blog-application-axt5.onrender.com/api/posts", {
+  fetch("https://full-stack-tech-blog-application-axt5.onrender.com/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
