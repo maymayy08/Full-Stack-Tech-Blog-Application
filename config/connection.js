@@ -1,25 +1,22 @@
-// connection.js
-const { Sequelize } = require('sequelize');
+require("dotenv").config();
+const Sequelize = require("sequelize");
 
-// Use DATABASE_URL for production environment (Clever Cloud or other hosting services)
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres', // Change to 'mysql' if you're using MySQL
-  logging: false, // Disable logging (optional)
-  dialectOptions: {
-    ssl: {
-      require: true, // For SSL connection in production environments (like Clever Cloud)
-      rejectUnauthorized: false, // To prevent certificate issues
-    },
-  },
-});
+if (process.env.DB_PASSWORD === "ChangeMe!") {
+  console.error("Please update the .env file with your database password.");
+  process.exit(1);
+}
 
-// Test the database connection
-sequelize.authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((error) => {
-    console.error('Unable to connect to the database:', error);
-  });
+const sequelize = process.env.JAWSDB_URL
+  ? new Sequelize(process.env.JAWSDB_URL)
+  : new Sequelize(
+      process.env.DB_DATABASE,
+      process.env.DB_USERNAME,
+      process.env.DB_PASSWORD,
+      {
+        host: process.env.DB_HOST,
+        dialect: process.env.DB_DIALECT,  // Ensure the dialect is set here
+        port: process.env.DB_PORT,
+      }
+    );
 
 module.exports = sequelize;
