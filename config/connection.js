@@ -1,20 +1,22 @@
-const { Sequelize } = require("sequelize");
+require("dotenv").config();
+const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize(
-  process.env.DB_DATABASE,
-  process.env.DB_USERNAME,
-  process.env.DB_PASSWORD,
-  {
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT || "mysql", 
-    port: process.env.DB_PORT || 3306,
-    dialectOptions: {
-      ssl: {
-        require: true, // 
-        rejectUnauthorized: false,
-      },
-    },
-  }
-);
+if (process.env.DB_PASSWORD === "ChangeMe!") {
+  console.error("Please update the .env file with your database password.");
+  process.exit(1);
+}
+
+const sequelize = process.env.JAWSDB_URL
+  ? new Sequelize(process.env.JAWSDB_URL)
+  : new Sequelize(
+      process.env.DB_DATABASE,
+      process.env.DB_USERNAME,
+      process.env.DB_PASSWORD,
+      {
+        host: process.env.DB_HOST,
+        dialect: process.env.DB_DIALECT,  // Ensure the dialect is set here
+        port: process.env.DB_PORT,
+      }
+    );
 
 module.exports = sequelize;
