@@ -202,9 +202,16 @@ document
 
 // Function to update a post
 function updatePost(postId) {
-  const newTitle = prompt("Enter new title:");
-  const newContent = prompt("Enter new content:");
-  if (newTitle && newContent) {
+    const newTitle = prompt("Enter new title:");
+    const newContent = prompt("Enter new content:");
+  
+    if (!newTitle || !newContent) {
+      alert("Both title and content are required.");
+      return; // Stop the process if either is missing
+    }
+  
+    console.log("Updating post with ID:", postId); // Verify that the correct postId is being passed
+  
     fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts/${postId}`, {
       method: "PUT",
       headers: {
@@ -216,17 +223,25 @@ function updatePost(postId) {
         content: newContent,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((data) => {
+            throw new Error(data.message || "Failed to update post.");
+          });
+        }
+        return res.json();
+      })
       .then((updatedPost) => {
         console.log("Post updated:", updatedPost);
-        // After updating, refresh the posts list
-        fetchPosts();
+        alert("Post updated successfully.");
+        fetchPosts(); // Refresh the posts list after successful update
       })
       .catch((err) => {
         console.error("Error updating post:", err);
+        alert("Failed to update post: " + err.message);
       });
   }
-}
+  
 // Function to delete a post
 function deletePost(postId) {
   if (confirm("Are you sure you want to delete this post?")) {
