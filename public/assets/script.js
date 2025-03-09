@@ -178,22 +178,22 @@ function displayPosts(posts) {
   });
 }
 
-// Function to filter posts by title
-function filterPostsByTitle() {
-  const selectedTitle = document.getElementById("title-filter").value;
-
-  let filteredPosts = allPosts;
-
-  // If a title is selected, filter posts by the title
-  if (selectedTitle) {
-    filteredPosts = allPosts.filter((post) =>
-      post.title.toLowerCase().includes(selectedTitle.toLowerCase())
-    );
+// Function to filter posts by title and content 
+function filterPosts() {
+    const filterText = document.getElementById("filter-input").value.toLowerCase();
+  
+    let filteredPosts = allPosts;
+  
+    // If the filter text is entered, filter posts by both title and content
+    if (filterText) {
+      filteredPosts = filteredPosts.filter((post) =>
+        post.title.toLowerCase().includes(filterText) || post.content.toLowerCase().includes(filterText)
+      );
+    }
+  
+    // Display the filtered posts
+    displayPosts(filteredPosts);
   }
-
-  // Display the filtered posts
-  displayPosts(filteredPosts);
-}
 
 // Attach event listener to the dropdown
 document

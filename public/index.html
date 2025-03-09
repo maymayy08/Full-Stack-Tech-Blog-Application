@@ -71,14 +71,16 @@
       <button class="submitPost" onclick="createPost()">Submit Post</button> 
       <h2 class="subTitle">Posts</h2>
       <button class="loadPost" onclick="fetchPosts()">Load Posts</button>
-      <select id="title-filter">
-        <option value="">All Categories</option>
-        <option value="gitHub">GitHub</option>
-        <option value="javaScript">JavaScript</option>
-        <option value="node.js">Node.js</option>
-        <option value="react">React</option>
-        <option value="sequelize">Sequelize</option>
-      </select> 
+      <input type="text" id="filter-input" placeholder="Filter by title or content">
+      <button onclick="filterPosts()">All Categories</button>
+      <!-- <select id="title-filter"> -->
+        <!-- <option value="">All Categories</option> -->
+        <!-- <option value="gitHub">GitHub</option> -->
+        <!-- <option value="javaScript">JavaScript</option> -->
+        <!-- <option value="node.js">Node.js</option> -->
+        <!-- <option value="react">React</option> -->
+        <!-- <option value="sequelize">Sequelize</option> -->
+      <!-- </select>  -->
       
 
 <!-- Display Posts -->
