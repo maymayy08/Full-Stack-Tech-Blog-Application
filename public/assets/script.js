@@ -193,6 +193,7 @@ function filterPosts() {
   
     // Display the filtered posts
     displayPosts(filteredPosts);
+    filterInput.value = '';
   }
   
   // Add an event listener for the "Enter" key press on the input field
