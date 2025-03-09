@@ -19,7 +19,6 @@ logBtn.onclick = function () {
 let token = localStorage.getItem("authToken");
 
 //Function to register users
-
 function register() {
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
@@ -53,17 +52,12 @@ function login() {
   })
     .then((res) => res.json())
     .then((data) => {
-      // Save the token in the local storage
       if (data.token) {
         localStorage.setItem("authToken", data.token);
         token = data.token;
 
         alert("User Logged In successfully");
-
-        // Fetch the posts list
         fetchPosts();
-
-        // Hide the auth container and show the app container as we're now logged in
         document.getElementById("auth-container").classList.add("hidden");
         document.getElementById("app-container").classList.remove("hidden");
       } else {
@@ -81,7 +75,6 @@ function logout() {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
   }).then(() => {
-    // Clear the token from the local storage as we're now logged out
     localStorage.removeItem("authToken");
     token = null;
     document.getElementById("auth-container").classList.remove("hidden");
@@ -89,7 +82,6 @@ function logout() {
   });
 }
 
-// Global variable for storing posts
 let allPosts = [];
 
 // Function to fetch posts and display them
@@ -183,8 +175,7 @@ function filterPosts() {
     const filterText = document.getElementById("filter-input").value.toLowerCase();
   
     let filteredPosts = allPosts;
-  
-    // If the filter text is entered, filter posts by both title and content
+
     if (filterText) {
       filteredPosts = filteredPosts.filter((post) =>
         post.title.toLowerCase().includes(filterText) || post.content.toLowerCase().includes(filterText)
@@ -196,15 +187,11 @@ function filterPosts() {
     filterInput.value = '';
   }
   
-  // Add an event listener for the "Enter" key press on the input field
   document.getElementById("filter-input").addEventListener("keypress", function(event) {
-    // Check if the pressed key is "Enter" (key code 13)
     if (event.key === "Enter") {
       filterPosts();
     }
   });
-
-
 
 // Function to update a post
 function updatePost(postId) {
@@ -225,7 +212,6 @@ function updatePost(postId) {
       .then((res) => res.json())
       .then((updatedPost) => {
         console.log("Post updated:", updatedPost);
-        // After updating, refresh the posts list
         fetchPosts();
       })
       .catch((err) => {
@@ -233,6 +219,7 @@ function updatePost(postId) {
       });
   }
 }
+
 // Function to delete a post
 function deletePost(postId) {
   if (confirm("Are you sure you want to delete this post?")) {
