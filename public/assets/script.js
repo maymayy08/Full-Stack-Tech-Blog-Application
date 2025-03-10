@@ -120,7 +120,7 @@ function createPost() {
 // Function to display posts on the page
 function displayPosts(posts) {
   const postsContainer = document.getElementById("posts");
-  postsContainer.innerHTML = ""; // Clear previous posts
+  postsContainer.innerHTML = ""; 
 
   posts.forEach((post) => {
     const div = document.createElement("div");
@@ -188,7 +188,6 @@ function filterPosts() {
   }
   
   document.getElementById("filter-input").addEventListener("keypress", function(event) {
-    // Check if the pressed key is "Enter" (key code 13)
     if (event.key === "Enter") {
       filterPosts();
     }
