@@ -198,7 +198,8 @@ function filterPosts() {
 function updatePost(postId) {
   const newTitle = prompt("Enter new title:");
   const newContent = prompt("Enter new content:");
-  if (newTitle && newContent) {
+  const newPostedBy = prompt("Enter your name");
+  if (newTitle && newContent && newPostedBy)  {
     fetch(`https://full-stack-tech-blog-application-axt5.onrender.com/api/posts/${postId}`, {
       method: "PUT",
       headers: {
@@ -208,6 +209,7 @@ function updatePost(postId) {
       body: JSON.stringify({
         title: newTitle,
         content: newContent,
+        postedBy: newPostedBy
       }),
     })
       .then((res) => res.json())
