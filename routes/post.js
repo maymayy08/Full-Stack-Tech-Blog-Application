@@ -39,13 +39,14 @@ app.get("/:id", async (req, res) => {
 // Route to update a post
 app.put("/:id", async (req, res) => {
   try {
-    const { title, content, postedBy } = req.body;
+    const { title, content } = req.body;
     const post = await Post.update(
       { title, content, postedBy },
       { where: { id: req.params.id } }
     );
     res.json(post);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Error updating post" });
   }
 });
