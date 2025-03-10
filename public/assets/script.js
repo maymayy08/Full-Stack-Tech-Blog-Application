@@ -178,7 +178,7 @@ function filterPosts() {
     let filteredPosts = allPosts;
     if (filterText) {
       filteredPosts = filteredPosts.filter((post) =>
-        post.title.toLowerCase().includes(filterText) || post.content.toLowerCase().includes(filterText)
+        post.title.toLowerCase().includes(filterText) || post.content.toLowerCase().includes(filterText) || post.postedBy.toLowerCase().includes(filterText)
       );
     }
   
